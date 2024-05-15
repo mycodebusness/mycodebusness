@@ -15,11 +15,11 @@ export default async function RootLayout({
     return redirect("/api/auth/signin");
   }
 
-  const users = await getProfileProClavier();
+  const users = await getProfileProClavier() || [];
 
   return (
     <>
-      <Header imageUrl={session?.user.image} name={session?.user.name} />
+      <Header imageUrl={session?.user.image || ""} name={session?.user.name || ""} />
       <div className="flex flex-col md:flex-row">
         <div className="w-48 hidden lg:block shrink-0" />
         <div className=" grow ">{children}</div>
