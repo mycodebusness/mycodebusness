@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 const date = new Date();
-export default function Compteur({ dateInscrit=date }) {
+export default function Compteur({ dateInscrit = date }) {
   const ecouler = new Date(dateInscrit).getTime();
   const [day, setDay] = useState(0);
   const [hour, setHour] = useState(0);
@@ -12,12 +12,12 @@ export default function Compteur({ dateInscrit=date }) {
     const timer = setInterval(() => {
       const dateNow = Date?.now();
       const dateDif = (dateNow - ecouler) / 1000;
-      const d = parseInt(dateDif / 86400);
+      const d = Math.round(dateDif / 86400);
       const day_dif = dateDif % 86400;
-      const h = parseInt(day_dif / 3600);
+      const h = Math.round(day_dif / 3600);
       const hour_dif = day_dif % 3600;
-      const m = parseInt(hour_dif / 60);
-      const s = parseInt(hour_dif % 60);
+      const m = Math.round(hour_dif / 60);
+      const s = Math.round(hour_dif % 60);
       setDay(d);
       setHour(h);
       setMin(m);
