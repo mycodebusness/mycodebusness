@@ -213,14 +213,14 @@ export function ArtworkSelector({
 }: {
   text?: string;
   index?: number;
-  handleActiveFilter: () => void;
+  handleActiveFilter: () => void; // Pas besoin de spécifier les arguments ici
   active?: number;
 }) {
   return (
     <li className="">
       <button
         onClick={() => {
-          handleActiveFilter(text, index);
+          handleActiveFilter(text, index); // Appel de handleActiveFilter avec les arguments nécessaires
         }}
         className={` ${
           active !== index
