@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 async function Page() {
   const session = await serverSesion();
   const id = session?.user.id;
-  const profile = await getUniqueProfileForUser(id);
+  const profile = await getUniqueProfileForUser(id) ||  [];
   return <FormParam userId={id} profile={profile} />;
 }
 
