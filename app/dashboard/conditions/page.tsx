@@ -2,10 +2,6 @@
 import React, { useState } from "react";
 import { MultiStepLoader as Loader } from "../../ui/multi-step-loader";
 import { IconSquareRoundedX } from "@tabler/icons-react";
-import { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "conditions",
-};
 const loadingStates = [
   {
     text: "L'inscription au groupe'",
