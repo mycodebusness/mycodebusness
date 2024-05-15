@@ -10,7 +10,7 @@ declare type meteor = {
   description: string;
   icon: string;
   testButton?: string;
-  svg?: any;
+  svgicon?: any;
 }[];
 const projects: meteor = [
   {
