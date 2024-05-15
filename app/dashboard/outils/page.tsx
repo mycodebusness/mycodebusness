@@ -1,6 +1,4 @@
 import { MeteorsDemo } from "@/app/ui/meteors";
-import { StickyScrollRevealDemo as StickyScrollRevealDemoProjets } from "@/app/ui/stickyScroolReveal";
-import { StickyScrollRevealDemo } from "@/app/ui/stickyscroolrevealOutils";
 import React from "react";
 import { IoLogoFigma } from "react-icons/io5";
 import { FaInternetExplorer } from "react-icons/fa";
