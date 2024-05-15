@@ -3,7 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Image from "next/image";
-export function AvatarUser({ imageUrl, name }) {
+export function AvatarUser({ imageUrl="", name="" }) {
   return (
     <>
       {imageUrl != undefined ? (
