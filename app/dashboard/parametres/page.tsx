@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: "parametres",
 };
 async function Page() {
-  const session = await serverSesion() || "";
-  const id = session?.user.id;
+  const session = await serverSesion() ;
+  const id = session?.user.id || "";
   const profile = await getUniqueProfileForUser(id) ||  [];
   return <FormParam userId={id} profile={profile} />;
 }
