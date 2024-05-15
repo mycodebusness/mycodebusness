@@ -167,7 +167,7 @@ export function Items({ users }: { users: User }) {
                   <div className="w-1/2 p-3">
                     <h3 className="font-semibold">Inscrit il y a :</h3>
                     <div className="flex gap-1">
-                      <Compteur dateInscrit={createdAt} />
+                      <Compteur dateInscrit={createdAt || ""} />
                     </div>
                   </div>
                 </div>
