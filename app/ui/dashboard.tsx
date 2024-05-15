@@ -205,6 +205,7 @@ export function Items({ users }: { users: User }) {
   );
 }
 
+
 export function ArtworkSelector({
   text = "",
   index = 0,
@@ -213,14 +214,14 @@ export function ArtworkSelector({
 }: {
   text?: string;
   index?: number;
-  handleActiveFilter: () => void; // Pas besoin de spécifier les arguments ici
+  handleActiveFilter: (text: string, index: number) => void; // Spécifier les arguments nécessaires ici
   active?: number;
 }) {
   return (
     <li className="">
       <button
         onClick={() => {
-          handleActiveFilter(text, index); // Appel de handleActiveFilter avec les arguments nécessaires
+          handleActiveFilter(text, index);
         }}
         className={` ${
           active !== index
@@ -233,3 +234,4 @@ export function ArtworkSelector({
     </li>
   );
 }
+
