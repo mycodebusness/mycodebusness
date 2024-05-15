@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
-export default function Compteur({ dateInscrit }) {
+const date = new Date();
+export default function Compteur({ dateInscrit=date }) {
   const ecouler = new Date(dateInscrit).getTime();
   const [day, setDay] = useState(0);
   const [hour, setHour] = useState(0);
