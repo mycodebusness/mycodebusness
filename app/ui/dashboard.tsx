@@ -205,7 +205,17 @@ export function Items({ users }: { users: User }) {
   );
 }
 
-export function ArtworkSelector({ text, index, handleActiveFilter, active }) {
+export function ArtworkSelector({
+  text = "",
+  index = 0,
+  handleActiveFilter,
+  active = 0,
+}: {
+  text?: string;
+  index?: number;
+  handleActiveFilter: (text = "", index = 0) => void;
+  active?: number;
+}) {
   return (
     <li className="">
       <button
@@ -221,166 +231,5 @@ export function ArtworkSelector({ text, index, handleActiveFilter, active }) {
         {text}
       </button>
     </li>
-  );
-}
-
-export function Header() {
-  return (
-    <div className="flex flex-wrap p-3 items-center sticky top-0 bg-slate-900 h-fit  md:h-16 z-30">
-      <div className="flex items-center grow md:grow-0 w-fit md:w-48">
-        <Image
-          width={50}
-          height={50}
-          className="rounded-full"
-          alt="logo du site"
-          src="/mycodebusness logo.svg"
-        />
-
-        <div className="ml-2 font-bold text-xl">MyCodeBs</div>
-      </div>
-
-      <div className="flex items-center order-2 md:order-3 pl-0 md:pl-3">
-        <div className="relative">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-          </svg>
-          <div className="absolute right-0 top-0 w-3 h-3 bg-zinc-900 rounded-full p-0.5">
-            <div className="bg-red-500 w-full h-full  rounded-full" />
-          </div>
-        </div>
-        <Image
-          width={40}
-          height={40}
-          src="/nft-dashboard-pro-1.jpg"
-          alt="user"
-          className="w-10 h-10 rounded-full ml-4"
-        />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-7 w-7 ml-4"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </div>
-
-      <div className="flex  mt-4 md:mt-0 order-3 md:order-2 w-full grow md:w-fit ">
-        <button className="grid w-10 h-10 rounded-md bg-transparent border-2 border-slate-800  place-items-center mr-2 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-        <form className="relative grow md:max-w-lg">
-          <input
-            type="text"
-            className="bg-transparent pl-3 pr-10 h-10 rounded-md w-full border-2 border-slate-800"
-            placeholder="search for collection"
-          />
-          <span className="absolute right-0 top-0 bottom-0 w-10 grid place-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </span>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-export function SidebarItem({ text, index }) {
-  return (
-    <li className="relative">
-      {index === 1 ? (
-        <div className="absolute -left-1 top-0 bg-fuchsia-600 w-2 h-8 rounded-full" />
-      ) : null}
-      <a
-        href="#"
-        className={`pl-4 flex items-center capitalize   ${
-          index === 1 ? "text-white" : "text-zinc-500"
-        }`}
-      >
-        <span
-          className={`bg-zinc-800 w-8 h-8 grid place-items-center mr-2 rounded-md ${
-            index === 1 ? "bg-fuchsia-600" : "bg-zinc-800"
-          }`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            {Icons[text]()}
-          </svg>
-        </span>
-        {text}
-      </a>
-    </li>
-  );
-}
-
-export function SidebarLeft() {
-  return (
-    <div className="hidden lg:flex h-screen flex-col justify-between w-48 fixed left-0 top-0 bottom-0 pt-24">
-      <ul className="space-y-8">
-        {[
-          "market",
-          "dashboard",
-          "favourites",
-          "trending",
-          "collection",
-          "wallet",
-          "settings",
-        ].map((key, index) => (
-          <SidebarItem key={key} text={key} index={index} />
-        ))}
-      </ul>
-      <div className="pb-5  px-4">
-        <hr className="mb-5 text-zinc-700" />
-        <a href="#" className="py-2 flex items-center  text-zinc-500">
-          <span className="bg-zinc-800 w-8 h-8 grid place-items-center mr-2 rounded-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              {Icons.logout()}
-            </svg>
-          </span>
-          Logout
-        </a>
-      </div>
-    </div>
   );
 }
