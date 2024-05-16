@@ -1,12 +1,14 @@
 {
   "name": "mycodebusness",
-  "version": "0.1.0",
+  "version": "1.0",
+  "description": "Description de mon projet",
+  "author": "Isaac Ilunga",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
