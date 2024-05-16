@@ -213,7 +213,7 @@ export function ArtworkSelector({
 }: {
   text?: string;
   index?: number;
-  handleActiveFilter: (text = "", index = 0) => void;
+  handleActiveFilter: (text: string, index: number) => void;
   active?: number;
 }) {
   return (
