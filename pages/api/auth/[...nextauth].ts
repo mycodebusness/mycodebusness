@@ -6,23 +6,23 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
 // Récupération des identifiants des fournisseurs depuis les variables d'environnement
-// const githubId = process.env.GITHUB_ID!;
-// const githubSecret = process.env.GITHUB_SECRET!;
+const githubId = process.env.GITHUB_ID!;
+ const githubSecret = process.env.GITHUB_SECRET!;
 const googleId = process.env.GOOGLE_CLIENT_ID!;
 const googleSecret = process.env.GOOGLE_CLIENT_SECRET!;
 
 // Vérification de la présence des identifiants des fournisseurs
-if (!googleId || !googleSecret) {
+if (!githubId || !githubSecret ||!googleId || !googleSecret) {
   throw new Error("Pas de GitHub ni Google dans le fichier .env");
 }
 
 // Configuration des fournisseurs d'authentification et des rappels (callbacks)
 export const authConfig: NextAuthOptions = {
   providers: [
-    // GithubProvider({
-    //   clientId: githubId,
-    //   clientSecret: githubSecret,
-    // }),
+   GithubProvider({
+      clientId: githubId,
+     clientSecret: githubSecret,
+    }),
     GoogleProvider({
       clientId: googleId!,
       clientSecret: googleSecret!,
