@@ -1,23 +1,21 @@
+import { redirect } from "next/navigation";
 import React from "react";
+import { getProfileProClavier } from "../lib/fetchData";
+import { serverSesion } from "../lib/serverSesion";
 import { SidebarRight } from "../ui/dashboard";
-// import { getProfileProClavier } from "../lib/fetchData";
 import { Header } from "../ui/header";
-// import { serverSesion } from "../lib/serverSesion";
-// import { redirect } from "next/navigation";
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const session = await serverSesion();
-  const session = { user: { image: "", name: "" } };
+  const session = (await serverSesion()) || { user: { image: "", name: "" } };
 
-  // if (!session) {
-  //   return redirect("/api/auth/signin");
-  // }
+  if (!session) {
+    return redirect("/api/auth/signin");
+  }
 
-  // const users = await getProfileProClavier() || [];
-  const users = [
+  const users = (await getProfileProClavier()) || [
     {
       id: "",
       email: "",

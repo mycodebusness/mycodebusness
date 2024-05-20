@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SidebarLeft } from "./navBarLeft";
 // import { AvatarUser } from "../lib/mui";
 import Link from "next/link";
-export function Header({ imageUrl, name }: { imageUrl: string; name: string }) {
+export function Header({ imageUrl = "", name = "" }) {
   return (
     <div className="sticky top-0 backdrop-blur-sm bg-slate-900/[0.6] h-fit pb-2 z-50">
       <div className="flex flex-wrap p-3 items-center    md:h-16 z-30">

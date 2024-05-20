@@ -1,13 +1,13 @@
 "use client";
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function LoginButton() {
   return (
     <button
-      // onClick={async () => {
-      //   await signIn("google");
-      // }}
-      className="flex items-center justify-center gap-3 px-8 py-2 bg-blue-700/10 hover:bg-blue-700/20 transition duration-200 rounded-lg text-white  "
+      onClick={async () => {
+        await signIn();
+      }}
+      className="flex items-center justify-center gap-3 px-8 py-2 bg-blue-700/40 hover:bg-blue-700/20 transition duration-200 rounded-lg text-white  "
     >
       Se connecter
       <svg

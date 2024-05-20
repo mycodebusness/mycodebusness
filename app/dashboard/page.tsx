@@ -1,14 +1,13 @@
 import React from "react";
 import type { Metadata } from "next";
-// import { getProfileAll } from "../lib/fetchData";
+import { getProfileAll } from "../lib/fetchData";
 import Content from "./content";
 export const metadata: Metadata = {
   title: "dashboard",
 };
 
 async function Page() {
-  // const users = await getProfileAll();
-  const users = [];
+  const users = await getProfileAll();
 
   return (
     <div className="">

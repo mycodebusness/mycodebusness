@@ -5,13 +5,14 @@ import LoginButton from "./ui/LoginButton";
 import { Meteors } from "./ui/meteors";
 import { Typewrite } from "./ui/typewrite";
 import { Vortex } from "./ui/vortex";
-// import { serverSesion } from "./lib/serverSesion";
+import { serverSesion } from "./lib/serverSesion";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  // const session = await serverSesion();
-  // if (!session) {
-  //   return redirect("/dashboard");
-  // }
+  const session = await serverSesion();
+  if (!session) {
+    return redirect("/dashboard");
+  }
   return (
     <>
       <div className="w-full h-screen overflow-hidden hidden lg:block">
@@ -94,12 +95,6 @@ function ComponentMobile() {
         <Typewrite />
       </div>
       <div className="flex sm:flex-row items-center gap-4 mt-6">
-        <Link
-          href="/"
-          className="flex items-center justify-center gap-3 px-8 py-2 bg-blue-700/10 hover:bg-blue-700/20 transition duration-200 rounded-lg text-white"
-        >
-          Dashboard
-        </Link>
         <LoginButton />
       </div>
       <Meteors number={30} />
