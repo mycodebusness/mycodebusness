@@ -9,25 +9,20 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = (await serverSesion()) || { user: { image: "", name: "" } };
-
+  const session = await serverSesion();
   if (!session) {
     return redirect("/api/auth/signin");
   }
 
-  const users = (await getProfileProClavier()) || [
-    {
-      id: "",
-      email: "",
-      createdAt: new Date().toString(),
-      image: "",
-      name: "",
-    },
-  ];
+  const users = await getProfileProClavier();
 
   return (
     <>
-      <Header imageUrl={session?.user.image} name={session?.user.name} />
+      <Header
+        imageUrl={session?.user?.image ?? ""}
+        name={session?.user?.name ?? ""}
+      />
+
       <div className="flex flex-col md:flex-row">
         <div className="w-48 hidden lg:block shrink-0" />
         <div className=" grow ">{children}</div>
